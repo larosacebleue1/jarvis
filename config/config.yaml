@@ -1,0 +1,51 @@
+# Configuration de l'Agent Jarvis
+
+# Modèle LLM à utiliser
+llm:
+  provider: "openai"
+  model: "gpt-4.1-mini"  # Options: gpt-4.1-mini, gpt-4.1-nano, gemini-2.5-flash
+  temperature: 0.7
+  max_tokens: 4000
+
+# Paramètres de sécurité
+security:
+  require_confirmation_for_critical_actions: true
+  sandbox_mode: true
+  backup_before_modification: true
+  allowed_directories:
+    - "/home/ubuntu/jarvis-agent"
+    - "/home/ubuntu/projects"
+
+# Base de connaissances
+knowledge_base:
+  path: "./knowledge_base"
+  vector_db_enabled: true
+  auto_save: true
+
+# Journalisation
+logging:
+  level: "INFO"  # DEBUG, INFO, WARNING, ERROR
+  file: "./logs/jarvis-agent.log"
+  console_output: true
+
+# Interface
+interface:
+  cli_enabled: true
+  api_enabled: false
+  api_port: 8000
+  web_ui_enabled: false
+  web_ui_port: 3000
+
+# Modules activés
+modules:
+  builder: true
+  fixer: true
+  learner: true
+
+# Templates par défaut
+templates:
+  web_static: true
+  web_dynamic: true
+  api_rest: true
+  cli_tool: true
+  mobile_app: true
